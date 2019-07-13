@@ -6,23 +6,32 @@
 //  Copyright © 2019 Eduardo Brandalise. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class BeerListViewModel {
     
     var beers: [Beer] = []
+    let beerRequest = BeerRequest()
     
-    typealias BeerRetrieved = ([Beer], BeerError?) -> Void
+    typealias BeerRetrieved = () -> Void
     
     func getBeers(completion: @escaping(BeerRetrieved)) {
-        let beerRequest = BeerRequest()
-        beerRequest.getBeers { [weak self] beerResult in
+        self.beerRequest.getBeers { [weak self] beerResult in
+            
             switch beerResult {
             case .failure(let error):
                 print(error)
+                
             case .success(let beers):
-                self?.beers = beers
-                completion(beers, nil)
+                self?.beerRequest.getBeerImagesFrom(beers: beers, completion: { beerResult in
+                    
+                    switch beerResult {
+                    case .failure(let error):
+                        print(error)
+                    case .success( _):
+                        completion()
+                    }
+                })
             }
         }
     }

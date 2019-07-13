@@ -6,13 +6,14 @@
 //  Copyright © 2019 Eduardo Brandalise. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Beer: Decodable {
     let id: Int
     let name: String
     let tagline: String
     let imageURL: URL?
+    var image: UIImage? = nil
     let abv: Double
     let ibu: Double?
     let description: String

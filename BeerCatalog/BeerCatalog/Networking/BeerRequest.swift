@@ -6,12 +6,7 @@
 //  Copyright © 2019 Eduardo Brandalise. All rights reserved.
 //
 
-import Foundation
-
-//struct BeerResult {
-//    var success: [Beer]
-//    var failure: BeerError?
-//}
+import UIKit
 
 enum BeerError: Error {
     case dataNotAvailable
@@ -47,5 +42,31 @@ struct BeerRequest {
             }
         }
         dataTask.resume()
+    }
+    
+    func getBeerImagesFrom(beers: [Beer], completion: @escaping(BeerResult) -> Void ) {
+        
+        var beers = beers
+        var images = [UIImage]()
+        
+        for beer in beers {
+            if let imageURL = beer.imageURL {
+                let dataTask = URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
+                    
+                    if let imageData = data {
+                        images.append(imageData.image ?? UIImage())
+                    }
+                }
+                dataTask.resume()
+            } else {
+                images.append(UIImage())
+            }
+        }
+        
+        for (index, image) in images.enumerated() {
+            beers[index].image = image
+        }
+        
+        completion(.success(beers))
     }
 }

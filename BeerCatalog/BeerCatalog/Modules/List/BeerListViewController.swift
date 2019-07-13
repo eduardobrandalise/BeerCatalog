@@ -24,9 +24,11 @@ class BeerListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Beers: \(self.viewModel.beers.count)"
+        
         tableView.register(UINib(nibName: "BeerListCell", bundle: nil), forCellReuseIdentifier: "BeerListCell")
         
-        self.viewModel.getBeers { [weak self] (beers, error) in
+        self.viewModel.getBeers { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
@@ -49,9 +51,10 @@ extension BeerListViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "BeerListCell", for: indexPath) as? BeerListCell {
+            
             let beer = viewModel.beers[indexPath.row]
             
-            cell.beerImageView = UIImageView()
+            cell.beerImageView.image = beer.image
             cell.nameLabel.text = beer.name
             cell.taglineLabel.text = beer.tagline
             

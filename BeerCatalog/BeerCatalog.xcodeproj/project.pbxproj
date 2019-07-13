@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C50D7CA22DA233A00196875 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C50D7C922DA233A00196875 /* UIImageExtensions.swift */; };
 		8C72772A22C7D4A400788B5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C72772922C7D4A400788B5A /* AppDelegate.swift */; };
 		8C72773122C7D4A400788B5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C72773022C7D4A400788B5A /* Assets.xcassets */; };
 		8C72773422C7D4A400788B5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C72773222C7D4A400788B5A /* LaunchScreen.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C50D7C922DA233A00196875 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		8C72772622C7D4A400788B5A /* BeerCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeerCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C72772922C7D4A400788B5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C72773022C7D4A400788B5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C50D7C622DA231700196875 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8C50D7C922DA233A00196875 /* UIImageExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8C72771D22C7D4A400788B5A = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +123,7 @@
 				8C72775922C7D4D400788B5A /* Model */,
 				8C72775722C7D4C400788B5A /* Modules */,
 				8C72775822C7D4CA00788B5A /* Networking */,
+				8C50D7C622DA231700196875 /* Extensions */,
 				8C72772922C7D4A400788B5A /* AppDelegate.swift */,
 				8C72773022C7D4A400788B5A /* Assets.xcassets */,
 				8C72773222C7D4A400788B5A /* LaunchScreen.storyboard */,
@@ -142,7 +153,6 @@
 		8C72775722C7D4C400788B5A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				8C72775C22C7D56400788B5A /* Details */,
 				8C72775B22C7D55F00788B5A /* List */,
 			);
 			path = Modules;
@@ -173,13 +183,6 @@
 				8C72776522C7E2EF00788B5A /* BeerListCell.xib */,
 			);
 			path = List;
-			sourceTree = "<group>";
-		};
-		8C72775C22C7D56400788B5A /* Details */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Details;
 			sourceTree = "<group>";
 		};
 		8C72775F22C7DCD700788B5A /* Coordinators */ = {
@@ -322,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C50D7CA22DA233A00196875 /* UIImageExtensions.swift in Sources */,
 				8C72776322C7DD1100788B5A /* AppCoordinator.swift in Sources */,
 				8C72775E22C7D59600788B5A /* BeerListViewController.swift in Sources */,
 				8C72772A22C7D4A400788B5A /* AppDelegate.swift in Sources */,
