@@ -12,7 +12,7 @@ class BeerListCell: UITableViewCell {
     
     @IBOutlet weak var beerImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var taglineLabel: UILabel!
+    @IBOutlet weak var abvLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

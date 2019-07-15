@@ -8,17 +8,37 @@
 
 import UIKit
 
-class AppCoordinator: Coordinator {
+final class AppCoordinator: Coordinator {
     
     var window: UIWindow?
+    
+    lazy var rootViewController = UINavigationController()
     
     init(window: UIWindow) {
         self.window = window
     }
     
     func start() {
-        let beerListView = BeerListViewController(viewModel: BeerListViewModel())
+        let viewModel = BeerListViewModel()
+        let beerListView = BeerListViewController(viewModel: viewModel)
+        beerListView.coordinator = self
         
-        self.window?.rootViewController = beerListView
+        self.rootViewController.setViewControllers([beerListView], animated: true)
+        self.window?.rootViewController = self.rootViewController
+    }
+    
+    private func showDetailViewController(beer: Beer) {
+        let viewModel = BeerDetailViewModel(beer: beer)
+        let viewController = BeerDetailViewController(viewModel: viewModel)
+        
+        self.rootViewController.pushViewController(viewController, animated: true)
+    }
+    
+    func handle(event: Event) {
+        switch event {
+        case BeerListEvent.showBeerDetail(beer: let beer):
+            self.showDetailViewController(beer: beer)
+        default: ()
+        }
     }
 }

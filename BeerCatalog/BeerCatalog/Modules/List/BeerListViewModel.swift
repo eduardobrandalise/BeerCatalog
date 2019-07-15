@@ -23,16 +23,10 @@ class BeerListViewModel {
                 print(error)
                 
             case .success(let beers):
-                self?.beerRequest.getBeerImagesFrom(beers: beers, completion: { beerResult in
-                    
-                    switch beerResult {
-                    case .failure(let error):
-                        print(error)
-                    case .success( _):
-                        completion()
-                    }
-                })
+                self?.beers = beers
+                completion()
             }
         }
     }
 }
+

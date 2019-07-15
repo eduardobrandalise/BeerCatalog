@@ -8,9 +8,14 @@
 
 import UIKit
 
+enum BeerListEvent: Event {
+    case showBeerDetail(_ beer: Beer)
+}
+
 class BeerListViewController: UITableViewController {
     
     var viewModel: BeerListViewModel
+    weak var coordinator: Coordinator?
     
     init(viewModel: BeerListViewModel) {
         self.viewModel = viewModel
@@ -24,13 +29,13 @@ class BeerListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Beers: \(self.viewModel.beers.count)"
-        
         tableView.register(UINib(nibName: "BeerListCell", bundle: nil), forCellReuseIdentifier: "BeerListCell")
         
         self.viewModel.getBeers { [weak self] in
             DispatchQueue.main.async {
-                self?.tableView.reloadData()
+                guard let view = self else { return }
+                view.title = "Beers: \(view.viewModel.beers.count)"
+                view.tableView.reloadData()
             }
         }
     }
@@ -41,7 +46,7 @@ class BeerListViewController: UITableViewController {
 extension BeerListViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return self.viewModel.beers.count
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,13 +58,18 @@ extension BeerListViewController {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "BeerListCell", for: indexPath) as? BeerListCell {
             
             let beer = viewModel.beers[indexPath.row]
+            let imageURL = beer.imageURL!
             
-            cell.beerImageView.image = beer.image
+            cell.beerImageView.downloadImageFrom(URL: imageURL, contentMode: .scaleAspectFit)
             cell.nameLabel.text = beer.name
-            cell.taglineLabel.text = beer.tagline
+            cell.abvLabel.text = "Alcohol by volume: \(beer.abv)"
             
             return cell
         }
         return UITableViewCell()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.coordinator?.handle(event: BeerListEvent.showBeerDetail(self.viewModel.beers[indexPath.row]))
     }
 }

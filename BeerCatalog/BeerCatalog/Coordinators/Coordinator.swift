@@ -8,6 +8,9 @@
 
 import Foundation
 
-protocol Coordinator {
+protocol Event {}
+
+protocol Coordinator: class {
     func start()
+    func handle(event: Event)
 }

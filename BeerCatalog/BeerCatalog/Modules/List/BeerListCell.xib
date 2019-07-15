@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -53,9 +49,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="abvLabel" destination="Dho-0S-itU" id="7Bh-TM-BgG"/>
                 <outlet property="beerImageView" destination="qMI-tk-hpk" id="ire-Cs-4Zs"/>
                 <outlet property="nameLabel" destination="7WI-Wx-adk" id="kcX-9E-CLM"/>
-                <outlet property="taglineLabel" destination="Dho-0S-itU" id="7Bh-TM-BgG"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="136.60714285714286"/>
         </tableViewCell>
