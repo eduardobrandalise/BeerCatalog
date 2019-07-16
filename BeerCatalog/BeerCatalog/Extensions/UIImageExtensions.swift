@@ -27,22 +27,3 @@ extension Data {
         }
     }
 }
-
-extension UIImageView {
-    
-    /// A UIImageView extension to download an image from a given URL.
-    ///
-    /// - Parameters:
-    ///   - URL: a URL to be used to fetch the image.
-    ///   - contentMode: the content mode the UIView should follow in order to adjust the image.
-    func downloadImageFrom(URL: URL, contentMode: UIView.ContentMode) {
-        URLSession.shared.dataTask(with: URL) { (data, response, error) in
-            DispatchQueue.main.async {
-                self.contentMode = contentMode
-                if let data = data {
-                    self.image = data.image
-                }
-            }
-        }.resume()
-    }
-}

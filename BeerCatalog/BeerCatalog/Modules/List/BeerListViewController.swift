@@ -15,6 +15,7 @@ enum BeerListEvent: Event {
 class BeerListViewController: UITableViewController {
     
     var viewModel: BeerListViewModel
+    let imageRequest = ImageRequest()
     weak var coordinator: Coordinator?
     
     init(viewModel: BeerListViewModel) {
@@ -60,7 +61,7 @@ extension BeerListViewController {
             let beer = viewModel.beers[indexPath.row]
             let imageURL = beer.imageURL!
             
-            cell.beerImageView.downloadImageFrom(URL: imageURL, contentMode: .scaleAspectFit)
+            self.imageRequest.getImage(for: cell.beerImageView, from: imageURL)
             cell.nameLabel.text = beer.name
             cell.abvLabel.text = "Alcohol by volume: \(beer.abv)"
             

@@ -16,6 +16,7 @@ class BeerListCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.beerImageView.contentMode = .scaleAspectFit
     }
 }

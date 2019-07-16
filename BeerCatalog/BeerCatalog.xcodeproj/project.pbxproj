@@ -23,6 +23,8 @@
 		8C72776722C7E2EF00788B5A /* BeerListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C72776522C7E2EF00788B5A /* BeerListCell.xib */; };
 		8C72776922C7EBFD00788B5A /* BeerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C72776822C7EBFD00788B5A /* BeerListViewModel.swift */; };
 		8C72776B22C7ECCB00788B5A /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C72776A22C7ECCB00788B5A /* Beer.swift */; };
+		8CCE835022DE1B5C008A2921 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE834F22DE1B5C008A2921 /* ImageRequest.swift */; };
+		8CCE835222DE2019008A2921 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE835122DE2019008A2921 /* ImageCache.swift */; };
 		8CD91CF322D7C0100028B4CC /* BeerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD91CF222D7C0100028B4CC /* BeerRequest.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,8 @@
 		8C72776522C7E2EF00788B5A /* BeerListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeerListCell.xib; sourceTree = "<group>"; };
 		8C72776822C7EBFD00788B5A /* BeerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListViewModel.swift; sourceTree = "<group>"; };
 		8C72776A22C7ECCB00788B5A /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
+		8CCE834F22DE1B5C008A2921 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
+		8CCE835122DE2019008A2921 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		8CD91CF222D7C0100028B4CC /* BeerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				8CD91CF222D7C0100028B4CC /* BeerRequest.swift */,
+				8CCE834F22DE1B5C008A2921 /* ImageRequest.swift */,
+				8CCE835122DE2019008A2921 /* ImageCache.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -350,9 +356,11 @@
 				8C65CF4B22DCCE970013EA3B /* BeerDetailViewController.swift in Sources */,
 				8C72776122C7DCEC00788B5A /* Coordinator.swift in Sources */,
 				8C72776922C7EBFD00788B5A /* BeerListViewModel.swift in Sources */,
+				8CCE835022DE1B5C008A2921 /* ImageRequest.swift in Sources */,
 				8C72776B22C7ECCB00788B5A /* Beer.swift in Sources */,
 				8C65CF4F22DCF52E0013EA3B /* InformationView.swift in Sources */,
 				8C65CF4D22DCCEA90013EA3B /* BeerDetailViewModel.swift in Sources */,
+				8CCE835222DE2019008A2921 /* ImageCache.swift in Sources */,
 				8C72776622C7E2EF00788B5A /* BeerListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

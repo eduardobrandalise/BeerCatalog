@@ -24,6 +24,10 @@ struct BeerRequest {
         self.resourceURL = resourceURL
     }
     
+    
+    /// This method fetches a collection of objects of the type Beer from the API. In a completion handler, it returns a BeerResult which may have two results: a failure that passes a BeerError or a success which passes a collection of the type Beer.
+    ///
+    /// - Parameter completion: Returns the BeerResult with either a failure or success result.
     func getBeers(completion: @escaping(BeerResult) -> Void) {
         let dataTask = URLSession.shared.dataTask(with: self.resourceURL) { (data, response, error) in
             

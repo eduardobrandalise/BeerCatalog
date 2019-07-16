@@ -12,6 +12,7 @@ class BeerListViewModel {
     
     var beers: [Beer] = []
     let beerRequest = BeerRequest()
+    let imageRequest = ImageRequest()
     
     typealias BeerRetrieved = () -> Void
     

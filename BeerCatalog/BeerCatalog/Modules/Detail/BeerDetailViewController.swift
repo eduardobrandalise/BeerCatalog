@@ -11,6 +11,8 @@ import UIKit
 class BeerDetailViewController: UIViewController {
     
     var viewModel: BeerDetailViewModel
+    let imageRequest = ImageRequest()
+    
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView(frame: .zero)
@@ -82,8 +84,9 @@ class BeerDetailViewController: UIViewController {
         
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
         
-        imageView.downloadImageFrom(URL: (beer.imageURL)!, contentMode: .scaleAspectFit)
+        self.imageRequest.getImage(for: imageView, from: beer.imageURL!)
         
         stackView.addArrangedSubview(containerView)
         containerView.addSubview(imageView)
